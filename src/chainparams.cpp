@@ -101,10 +101,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x56;
-        pchMessageStart[1] = 0x4f;
-        pchMessageStart[2] = 0x49;
-        pchMessageStart[3] = 0x44;
+        pchMessageStart[0] = 0x57;
+        pchMessageStart[1] = 0x3f;
+        pchMessageStart[2] = 0x50;
+        pchMessageStart[3] = 0x45;
         vAlertPubKey = ParseHex("04a983220ea7a38a7106385003fef77896538a382a0dcc389cc45f3c98751d9af423a097789757556259351198a8aaa628a1fd644c3232678c5845384c744ff8d7");
         nDefaultPort = 48882;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
@@ -115,10 +115,10 @@ public:
         nToCheckBlockUpgradeMajority = 1008;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Crave: 1 day
-        nTargetSpacing = 1 * 60;  // Crave: 1 minute
-        nMaturity = 87;
+        nTargetSpacing = 1 * 15;  // Crave: 1 minute
+        nMaturity = 10;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 1000000000 * COIN;
+        nMaxMoneyOut = 50000000000 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 1001;
@@ -141,7 +141,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Enter the VOID > 08 Jan 2018";
+        const char* pszTimestamp = "His Majesty the King has granted graciously a posthumous promotion to a former Navy SEAL diver who lost his life during the mission to rescue the 13 footballers stranded in the Tham Luang cave in Chiang Rai";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -151,14 +151,14 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1515404400;
+        genesis.nTime = 1531624089;
         genesis.nBits = 0x207fffff;
         genesis.nNonce = 12345;
 
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x7084c9af2c34a1179522d71ceaef27d87855365793ed9c9dd47ff4f8721462c1"));
         assert(genesis.hashMerkleRoot == uint256("0xb9c9cf09c633aa24f4e52766d6decfc20a50063a2210939ef318aefcf925e444"));
-
+/*
         vSeeds.push_back(CDNSSeedData("0", "dns0.craveproject.net"));
         vSeeds.push_back(CDNSSeedData("1", "dns1.craveproject.net"));
         vSeeds.push_back(CDNSSeedData("2", "dns2.craveproject.net"));
@@ -169,12 +169,12 @@ public:
         vSeeds.push_back(CDNSSeedData("7", "dns7.craveproject.net"));
         vSeeds.push_back(CDNSSeedData("8", "dns8.craveproject.net"));
         vSeeds.push_back(CDNSSeedData("9", "dns9.craveproject.net"));
-
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 70);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 85);
-        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 153);
-        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
-        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
+*/
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 23);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 86);
+        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 151);
+        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x05)(0x78)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x05)(0x78)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x13)(0x00)(0x00)(0x80).convert_to_container<std::vector<unsigned char> >();
 
@@ -185,7 +185,7 @@ public:
         fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
-        fMineBlocksOnDemand = false;
+        fMineBlocksOnDemand = true;
         fSkipProofOfWorkCheck = true;
         fTestnetToBeDeprecatedFieldRPC = false;
         fHeadersFirstSyncingActive = false;
@@ -193,7 +193,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "029edc4fc53218495a1ec17ba3175653d18084deb46244ed0d5cf470e4f2f64ebc";
         strObfuscationPoolDummyAddress = "VGbik3FETjcw3BVNXDCvQjiCa1hnAJWQzH";
-        nStartMasternodePayments = 1511349071; //Wed, 25 Jun 2014 20:36:16 GMT
+        nStartMasternodePayments = 1531624089 ; //Wed, 25 Jun 2014 20:36:16 GMT
 
         /** Zerocoin */
         zerocoinModulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
